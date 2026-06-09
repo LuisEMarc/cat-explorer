@@ -1,23 +1,23 @@
-function createCatCard(cat) {
-  const breed = cat.breeds?.[0];
+function getCatImage(cat) {
+  return cat.reference_image_id
+    ? `https://cdn2.thecatapi.com/images/${cat.reference_image_id}.jpg`
+    : "https://placehold.co/400x400?text=No+Image";
+}
 
+function createCatCard(cat) {
   return `
     <div class="cat-card">
 
       <img
-        src="${cat.url}"
-        alt="${breed?.name || "Cat"}"
+        src="${getCatImage(cat)}"
+        alt="${cat.name}"
       >
 
       <div class="cat-info">
 
-        <h3>
-          ${breed?.name || "Unknown Breed"}
-        </h3>
+        <h3>${cat.name}</h3>
 
-        <p>
-          🌎 ${breed?.origin || "Unknown"}
-        </p>
+        <p>🌎 ${cat.origin}</p>
 
       </div>
 
