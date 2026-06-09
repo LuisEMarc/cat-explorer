@@ -1,5 +1,4 @@
-const API_URL =
-  "https://api.thecatapi.com/v1/images/search?limit=12&has_breeds=1";
+const API_URL = "https://api.thecatapi.com/v1/breeds?limit=10";
 
 async function getCats() {
   try {
