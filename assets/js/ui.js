@@ -4,9 +4,9 @@ function getCatImage(cat) {
     : "https://placehold.co/400x400?text=No+Image";
 }
 
-function createCatCard(cat) {
+function createCatCard(cat, index) {
   return `
-    <div class="cat-card">
+    <div class="cat-card" data-index="${index}">
 
       <img
         src="${getCatImage(cat)}"
