@@ -4,17 +4,11 @@
 
 :root {
   --bg-color: #f6f7f9;
-
   --card-bg: #ffffff;
-
   --text-primary: #1b1b1f;
-
   --text-secondary: #6b7280;
-
   --border-color: rgba(0, 0, 0, 0.08);
-
   --accent-color: #4285f4;
-
   --shadow: 0 4px 12px rgba(0, 0, 0, 0.06), 0 2px 4px rgba(0, 0, 0, 0.04);
 }
 
@@ -24,15 +18,10 @@
 
 body.dark-mode {
   --bg-color: #121212;
-
   --card-bg: #1e1e1e;
-
   --text-primary: #f5f5f5;
-
   --text-secondary: #b0b0b0;
-
   --border-color: rgba(255, 255, 255, 0.08);
-
   --shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
 }
 
@@ -42,15 +31,10 @@ body.dark-mode {
 
 body {
   margin: 0;
-
   padding: 30px;
-
   font-family: "Inter", sans-serif;
-
   background: var(--bg-color);
-
   color: var(--text-primary);
-
   transition:
     background 0.3s ease,
     color 0.3s ease;
@@ -62,47 +46,32 @@ body {
 
 .hero-header {
   display: flex;
-
   justify-content: space-between;
-
   align-items: center;
-
   gap: 16px;
-
   margin-bottom: 8px;
 }
 
 .hero-card {
   background: var(--card-bg);
-
   border-radius: 32px;
-
   padding: 32px;
-
   margin-bottom: 32px;
-
   border: 1px solid var(--border-color);
-
   box-shadow: var(--shadow);
 }
 
 .hero-card h1 {
   margin: 0;
-
   font-size: 2.5rem;
-
   font-weight: 800;
-
   color: var(--text-primary);
 }
 
 .hero-card p {
   margin-top: 8px;
-
   margin-bottom: 0;
-
   font-size: 1rem;
-
   color: var(--text-secondary);
 }
 
@@ -112,17 +81,11 @@ body {
 
 .theme-toggle {
   display: inline-flex;
-
   align-items: center;
-
   gap: 12px;
-
   padding: 10px 16px;
-
   border-radius: 999px;
-
   background: rgba(0, 0, 0, 0.04);
-
   margin: 0;
 }
 
@@ -132,9 +95,7 @@ body.dark-mode .theme-toggle {
 
 .theme-toggle i {
   font-size: 1.2rem;
-
   color: var(--text-secondary);
-
   transition: 0.3s ease;
 }
 
@@ -144,9 +105,7 @@ body.dark-mode .theme-toggle {
 
 .switch {
   position: relative;
-
   width: 52px;
-
   height: 28px;
 }
 
@@ -156,35 +115,22 @@ body.dark-mode .theme-toggle {
 
 .slider {
   position: absolute;
-
   inset: 0;
-
   background: #ccc;
-
   border-radius: 999px;
-
   cursor: pointer;
-
   transition: 0.3s ease;
 }
 
 .slider::before {
   content: "";
-
   position: absolute;
-
   width: 22px;
-
   height: 22px;
-
   left: 3px;
-
   top: 3px;
-
   background: white;
-
   border-radius: 50%;
-
   transition: 0.3s ease;
 }
 
@@ -202,9 +148,7 @@ input:checked + .slider::before {
 
 .cards-grid {
   display: grid;
-
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-
   gap: 20px;
 }
 
@@ -214,15 +158,10 @@ input:checked + .slider::before {
 
 .cat-card {
   background: var(--card-bg);
-
   border-radius: 28px;
-
   overflow: hidden;
-
   border: 1px solid var(--border-color);
-
   box-shadow: var(--shadow);
-
   transition:
     transform 0.25s ease,
     box-shadow 0.25s ease;
@@ -230,15 +169,12 @@ input:checked + .slider::before {
 
 .cat-card:hover {
   transform: translateY(-6px);
-
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
 }
 
 .cat-card img {
   width: 100%;
-
   height: 250px;
-
   object-fit: cover;
 }
 
@@ -248,13 +184,11 @@ input:checked + .slider::before {
 
 .cat-info h3 {
   margin: 0;
-
   color: var(--text-primary);
 }
 
 .cat-info p {
   margin-top: 8px;
-
   color: var(--text-secondary);
 }
 
@@ -264,35 +198,24 @@ input:checked + .slider::before {
 
 .footer-card {
   background: var(--card-bg);
-
   border-radius: 32px;
-
   padding: 24px;
-
   margin-top: 32px;
-
   text-align: center;
-
   border: 1px solid var(--border-color);
-
   box-shadow: var(--shadow);
 }
 
 .footer-card h2 {
   margin: 0;
-
   font-size: 1.25rem;
-
   font-weight: 700;
-
   color: var(--text-primary);
 }
 
 .footer-card p {
   margin-top: 8px;
-
   margin-bottom: 0;
-
   color: var(--text-secondary);
 }
 
@@ -308,6 +231,144 @@ input:checked + .slider::before {
     background 0.3s ease,
     border-color 0.3s ease,
     box-shadow 0.3s ease;
+}
+
+/* ==========================
+   CAT MODAL
+========================== */
+
+.cat-modal {
+  border: none;
+  border-radius: 32px;
+  overflow: hidden;
+  background: var(--card-bg);
+  color: var(--text-primary);
+}
+
+.cat-modal-image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+}
+
+.cat-modal-dialog {
+  max-width: 420px;
+}
+
+.cat-modal-body {
+  padding: 24px;
+}
+
+#modalName {
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+
+#modalOrigin {
+  color: var(--text-secondary);
+  margin-bottom: 16px;
+}
+
+#modalDescription {
+  margin-bottom: 20px;
+}
+
+.cat-description {
+  margin-top: 18px;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+#modalStats {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-top: 20px;
+}
+
+/* ==========================
+   STATS
+========================== */
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.stat-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.stat-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+}
+
+.stat-value {
+  color: var(--text-secondary);
+  font-weight: 700;
+}
+
+.stat-bar {
+  width: 100%;
+  height: 10px;
+  border-radius: 999px;
+  overflow: hidden;
+  background: linear-gradient(90deg, var(--accent-color), #6ea8ff);
+}
+
+.stat-fill {
+  height: 100%;
+  border-radius: inherit;
+  background: var(--accent-color);
+  transition: width 0.3s ease;
+}
+
+.cat-temperament {
+  margin: 16px 0;
+}
+
+.temperament-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: var(--text-primary);
+}
+
+.temperament-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.temperament-chip {
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  background: rgba(66, 133, 244, 0.12);
+  color: var(--accent-color);
+}
+
+.wiki-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 20px;
+  padding: 10px 16px;
+  border-radius: 999px;
+  text-decoration: none;
+  background: var(--accent-color);
+  color: white;
+  font-weight: 600;
 }
 
 /* ==========================
@@ -329,11 +390,8 @@ input:checked + .slider::before {
 
   .hero-header {
     display: flex;
-
     justify-content: space-between;
-
     align-items: center;
-
     flex-wrap: wrap;
   }
 
