@@ -17,7 +17,7 @@ function createCatCard(cat, index) {
 
         <h3>${cat.name}</h3>
 
-        <p>🌎 ${cat.origin}</p>
+        <p><i class="bi bi-globe"></i> ${cat.origin}</p>
 
       </div>
 
