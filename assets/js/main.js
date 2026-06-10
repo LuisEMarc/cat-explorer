@@ -1,12 +1,14 @@
 document.addEventListener("DOMContentLoaded", init);
 
 let currentCats = [];
+const CATS_PER_PAGE = 12;
+let currentPage = 1;
 const THEME_KEY = "cat_explorer_theme";
 
 async function init() {
   initTheme();
   currentCats = await getCats();
-  renderCats(currentCats);
+  renderCurrentPage();
   initCatModal();
 }
 
@@ -48,6 +50,9 @@ function initCatModal() {
 }
 
 function openCatModal(cat, modal) {
+  modalImage.onerror = () => {
+    modalImage.src = "assets/images/404-gatito.jpg";
+  };
   document.getElementById("modalImage").src = getCatImage(cat);
   document.getElementById("modalName").textContent = cat.name;
   document.getElementById("modalOrigin").textContent = `🌎 ${cat.origin}`;
@@ -108,4 +113,59 @@ function createStat(icon, label, value) {
 
     </div>
   `;
+}
+
+function renderCurrentPage() {
+  const start = (currentPage - 1) * CATS_PER_PAGE;
+  const end = start + CATS_PER_PAGE;
+  const catsToRender = currentCats.slice(start, end);
+  renderCats(catsToRender, start);
+  renderPagination();
+}
+
+function renderPagination() {
+  const container = document.getElementById("pagination");
+
+  const totalPages = Math.ceil(currentCats.length / CATS_PER_PAGE);
+
+  let html = "";
+
+  for (let page = 1; page <= totalPages; page++) {
+    html += `
+            <button
+                class="page-btn ${page === currentPage ? "active" : ""}"
+                data-page="${page}">
+                ${page}
+            </button>
+        `;
+  }
+
+  container.innerHTML = html;
+}
+
+document.addEventListener("click", (e) => {
+  const pageBtn = e.target.closest(".page-btn");
+
+  if (!pageBtn) return;
+
+  currentPage = Number(pageBtn.dataset.page);
+
+  renderCurrentPage();
+
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
+});
+
+function updatePaginationInfo() {
+  const info = document.getElementById("paginationInfo");
+
+  if (!info) return;
+
+  const start = (currentPage - 1) * CATS_PER_PAGE + 1;
+
+  const end = Math.min(currentPage * CATS_PER_PAGE, currentCats.length);
+
+  info.textContent = `Showing ${start}-${end} of ${currentCats.length} breeds`;
 }
