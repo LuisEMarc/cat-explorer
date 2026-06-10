@@ -55,7 +55,10 @@ function openCatModal(cat, modal) {
   };
   document.getElementById("modalImage").src = getCatImage(cat);
   document.getElementById("modalName").textContent = cat.name;
-  document.getElementById("modalOrigin").textContent = `🌎 ${cat.origin}`;
+  document.getElementById("modalOrigin").innerHTML = `
+  <i class="bi bi-globe"></i>
+  <span>${cat.origin}</span>
+`;
   document.getElementById("modalTemperament").innerHTML = `
     <div class="temperament-title">
         <i class="bi bi-tags-fill"></i>
@@ -120,6 +123,7 @@ function renderCurrentPage() {
   const end = start + CATS_PER_PAGE;
   const catsToRender = currentCats.slice(start, end);
   renderCats(catsToRender, start);
+  updatePaginationInfo();
   renderPagination();
 }
 
@@ -159,13 +163,10 @@ document.addEventListener("click", (e) => {
 });
 
 function updatePaginationInfo() {
+   console.log("Actualizando paginación");
   const info = document.getElementById("paginationInfo");
-
   if (!info) return;
-
   const start = (currentPage - 1) * CATS_PER_PAGE + 1;
-
   const end = Math.min(currentPage * CATS_PER_PAGE, currentCats.length);
-
-  info.textContent = `Showing ${start}-${end} of ${currentCats.length} breeds`;
+  info.textContent = `Showing ${start}-${end} of ${currentCats.length} cats`;
 }
